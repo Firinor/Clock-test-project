@@ -1,7 +1,10 @@
 using System;
+using UnityEngine;
+using Zenject;
 
 public class TimeView
 {
+    [Inject]
     private ViewComponents viewComponents;
 
     private DateTime time;
@@ -16,24 +19,33 @@ public class TimeView
 
         SetClockNumber();
     }
-
-    private void SetClockNumber()
+    private void SetHourHand()
     {
-        throw new NotImplementedException();
-    }
+        int hour = time.Hour;
+        int minute = time.Minute;
+        float angle = hour * CONSTANTS.HOUR_ANGLE_STEP + (float)minute * CONSTANTS.MINUTE_ANGLE_RATIO;
 
-    private void SetSecondHand()
-    {
-        throw new NotImplementedException();
+        viewComponents.HourHand.eulerAngles = new Vector3(0f, 0f, angle);
     }
 
     private void SetMinuteHand()
     {
-        throw new NotImplementedException();
+        int minute = time.Minute;
+        float angle = minute * CONSTANTS.HAND_ANGLE_STEP;
+
+        viewComponents.MinuteHand.eulerAngles = new Vector3(0f, 0f, angle);
     }
 
-    private void SetHourHand()
+    private void SetSecondHand()
     {
-        throw new NotImplementedException();
+        int second = time.Second;
+        float angle = second * CONSTANTS.HAND_ANGLE_STEP;
+
+        viewComponents.SecondHand.eulerAngles = new Vector3(0f, 0f, angle);
+    }
+
+    private void SetClockNumber()
+    {
+        viewComponents.ClockText.text = time.ToString("HH:mm:ss");
     }
 }

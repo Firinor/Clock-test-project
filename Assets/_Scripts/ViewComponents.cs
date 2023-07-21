@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
-public class ViewComponents
+public class ViewComponents : MonoBehaviour
 {
     public RectTransform HourHand;
     public RectTransform MinuteHand;
     public RectTransform SecondHand;
 
-    public RectTransform Clock;
+    public TextMeshProUGUI ClockText;
 }

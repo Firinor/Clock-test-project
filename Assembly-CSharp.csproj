@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{93DCDA44-400D-FA75-E8F9-B790349DF451}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -59,8 +58,12 @@
     <Analyzer Include="E:\Unity\2022.2.13f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\Zenject\Installer.cs" />
+    <Compile Include="Assets\_Scripts\DATA\TimeData.cs" />
     <Compile Include="Assets\_Scripts\TimeView.cs" />
+    <Compile Include="Assets\_Scripts\DATA\CONST.cs" />
     <Compile Include="Assets\_Scripts\ViewComponents.cs" />
+    <Compile Include="Assets\_Scripts\TimeLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
