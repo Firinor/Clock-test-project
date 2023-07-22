@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 public class TimeView
 {
     [Inject]
     private ViewComponents viewComponents;
+    [Inject]
+    private ClockSettings clockSettings;
 
     private DateTime time;
 
@@ -25,7 +28,7 @@ public class TimeView
         int minute = time.Minute;
         float angle = hour * CONSTANTS.HOUR_ANGLE_STEP + (float)minute * CONSTANTS.MINUTE_ANGLE_RATIO;
 
-        viewComponents.HourHand.eulerAngles = new Vector3(0f, 0f, angle);
+        viewComponents.HourHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
     }
 
     private void SetMinuteHand()
@@ -33,7 +36,7 @@ public class TimeView
         int minute = time.Minute;
         float angle = minute * CONSTANTS.HAND_ANGLE_STEP;
 
-        viewComponents.MinuteHand.eulerAngles = new Vector3(0f, 0f, angle);
+        viewComponents.MinuteHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
     }
 
     private void SetSecondHand()
@@ -41,7 +44,7 @@ public class TimeView
         int second = time.Second;
         float angle = second * CONSTANTS.HAND_ANGLE_STEP;
 
-        viewComponents.SecondHand.eulerAngles = new Vector3(0f, 0f, angle);
+        viewComponents.SecondHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
     }
 
     private void SetClockNumber()

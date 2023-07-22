@@ -11,11 +11,14 @@ public class TimeLogic : MonoBehaviour
     [Inject]
     private TimeData timeData;
 
+    [Inject]
+    private TimeGetter timeGetter;
+
     CompositeDisposable disposables = new CompositeDisposable();
 
     void Start()
     {
-        timeData.currentTime = GetTime();
+        CheckTime();
 
         Observable.EveryFixedUpdate()
             .Subscribe(_ => timeData.DeltaTime += Time.fixedDeltaTime)
@@ -27,15 +30,13 @@ public class TimeLogic : MonoBehaviour
             .AddTo(disposables);
     }
 
-    private DateTime GetTime()
+    private void CheckTime()
     {
-        return DateTime.Now;
+        timeGetter.CheckTheTime();
     }
 
     private void NextSecond()
     {
-        Debug.Log(timeData.currentTime);
-
         timeData.DeltaTime -= 1f;
         timeData.currentTime = timeData.currentTime.AddSeconds(1);
         timeView.SetTime(timeData.currentTime);

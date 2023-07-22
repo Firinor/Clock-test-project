@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc1dd1357c28354085cb6f22a8dc320, type: 3}
+  m_Name: ScriptableInstaller
+  m_EditorClassIdentifier: 
+  clockSettings: {fileID: 11400000, guid: 3eed92aefa06f284ebbf9fe34c755d53, type: 2}
+  internetSettings: {fileID: 11400000, guid: 5dd93acc0ae9640479a5a11bd19dc516, type: 2}
