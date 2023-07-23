@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc1dd1357c28354085cb6f22a8dc320, type: 3}
-  m_Name: ScriptableInstaller
+  m_Script: {fileID: 11500000, guid: 9fb75ca8b078aa34b945d58981001a24, type: 3}
+  m_Name: AlarmSettings
   m_EditorClassIdentifier: 
-  clockSettings: {fileID: 11400000, guid: 3eed92aefa06f284ebbf9fe34c755d53, type: 2}
-  internetSettings: {fileID: 11400000, guid: 5dd93acc0ae9640479a5a11bd19dc516, type: 2}
+  Clip: {fileID: 8300000, guid: e7e3eaab3ca78074d8758c608c890d13, type: 3}

@@ -12,11 +12,13 @@ public class TimeGetter : MonoBehaviour
     [Inject]
     private InternetSettings settings;
 
-    public IEnumerable CheckTheTime()
+    public IEnumerator GetTime()
     {
         TimeGetterState state = new TimeGetterState();
         for(int i = 0; i < settings.Addresses.Length; i++)
         {
+            state.status = TimeGetterStatus.Started;
+
             string adress = settings.Addresses[i];
             if(!string.IsNullOrEmpty(adress))
                 yield return timeAcquisitionAPI.GetRealTimeFromAPI(adress, state);

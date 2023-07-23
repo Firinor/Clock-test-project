@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 using Zenject;
@@ -33,13 +32,11 @@ public class TimeAcquisitionAPI
 
     public IEnumerator GetRealTimeFromAPI(string url, TimeGetterState state)
     {
-        state.status = TimeGetterStatus.Started;
-
         UnityWebRequest unityWebRequest = UnityWebRequest.Get(url);
 
         yield return unityWebRequest.SendWebRequest();
 
-        if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError)
+        if (unityWebRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.LogWarning(
                 $"When trying to get the date from the address \"{url}\" an error occurred: \"{unityWebRequest.error}\"!");

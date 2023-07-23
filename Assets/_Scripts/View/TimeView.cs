@@ -9,12 +9,20 @@ public class TimeView
     private ViewComponents viewComponents;
     [Inject]
     private ClockSettings clockSettings;
-
+    
+    private TimeData timeData;
     private DateTime time;
 
-    public void SetTime(DateTime time)
+    [Inject]
+    public TimeView(TimeData timeData)
     {
-        this.time = time;
+        this.timeData = timeData;
+        timeData.NextSecond += SetTime;
+    }
+
+    private void SetTime()
+    {
+        time = timeData.currentTime;
 
         SetHourHand();
         SetMinuteHand();
@@ -49,6 +57,6 @@ public class TimeView
 
     private void SetClockNumber()
     {
-        viewComponents.ClockText.text = time.ToString("HH:mm:ss");
+        viewComponents.ClockText.text = time.ToString(clockSettings.timeFormat);
     }
 }

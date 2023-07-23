@@ -4,5 +4,6 @@
 public class ClockSettings : ScriptableObject
 {
     public float timeToTick;
+    public string timeFormat;
 }
 

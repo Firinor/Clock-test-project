@@ -5,6 +5,10 @@ public class TimeData
     public float DeltaTime;
     public DateTime currentTime;
 
-    public bool isAlarmEnabled = false;
-    public DateTime AlarmTime;
+    public event Action NextSecond;
+
+    public void NextSecondInvoke()
+    {
+        NextSecond?.Invoke();
+    }
 }

@@ -58,18 +58,25 @@
     <Analyzer Include="E:\Unity\2022.2.13f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\DATA\ClockSettings.cs" />
     <Compile Include="Assets\_Scripts\DATA\TimeData.cs" />
     <Compile Include="Assets\_Scripts\Zenject\ScriptableObjectInstaller.cs" />
-    <Compile Include="Assets\_Scripts\TimeView.cs" />
-    <Compile Include="Assets\_Scripts\DATA\CONST.cs" />
-    <Compile Include="Assets\_Scripts\ViewComponents.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Settings\ClockSettings.cs" />
+    <Compile Include="Assets\_Scripts\Alarm.cs" />
+    <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskAlarm.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Static\CONST.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Settings\AlarmSettings.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Static\Enums.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Settings\BackgroundTaskSettings.cs" />
+    <Compile Include="Assets\_Scripts\View\AlarmView.cs" />
     <Compile Include="Assets\_Scripts\Zenject\MainMonoInstaller.cs" />
+    <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskTimeCheck.cs" />
     <Compile Include="Assets\_Scripts\Internet\TImeGetterStatus.cs" />
+    <Compile Include="Assets\_Scripts\View\TimeView.cs" />
     <Compile Include="Assets\_Scripts\TimeGetter.cs" />
+    <Compile Include="Assets\_Scripts\DATA\Settings\InternetSettings.cs" />
+    <Compile Include="Assets\_Scripts\View\ViewComponents.cs" />
+    <Compile Include="Assets\_Scripts\DATA\AlarmData.cs" />
     <Compile Include="Assets\_Scripts\Internet\TimeAcquisitionAPI.cs" />
-    <Compile Include="Assets\_Scripts\DATA\Enums.cs" />
-    <Compile Include="Assets\_Scripts\DATA\InternetSettings.cs" />
     <Compile Include="Assets\_Scripts\TimeLogic.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -328,11 +335,11 @@
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>E:\Unity\2022.2.13f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
