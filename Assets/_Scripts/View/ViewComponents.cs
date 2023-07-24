@@ -11,5 +11,7 @@ public class ViewComponents : MonoBehaviour
     public TextMeshProUGUI ClockText;
 
     public Button AlarmButton;
+    public Image AlarmImage;
+    public GameObject AlarmImageGameObject;
     public TMP_InputField AlarmInputField;
 }

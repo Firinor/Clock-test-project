@@ -63,6 +63,7 @@
     <Compile Include="Assets\_Scripts\DATA\Settings\ClockSettings.cs" />
     <Compile Include="Assets\_Scripts\Alarm.cs" />
     <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskAlarm.cs" />
+    <Compile Include="Assets\_Scripts\DragAndDropClockHand.cs" />
     <Compile Include="Assets\_Scripts\DATA\Static\CONST.cs" />
     <Compile Include="Assets\_Scripts\DATA\Settings\AlarmSettings.cs" />
     <Compile Include="Assets\_Scripts\DATA\Static\Enums.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\_Scripts\Zenject\MainMonoInstaller.cs" />
     <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskTimeCheck.cs" />
     <Compile Include="Assets\_Scripts\Internet\TImeGetterStatus.cs" />
+    <Compile Include="Assets\_Scripts\View\ClockViewUtil.cs" />
     <Compile Include="Assets\_Scripts\View\TimeView.cs" />
     <Compile Include="Assets\_Scripts\TimeGetter.cs" />
     <Compile Include="Assets\_Scripts\DATA\Settings\InternetSettings.cs" />

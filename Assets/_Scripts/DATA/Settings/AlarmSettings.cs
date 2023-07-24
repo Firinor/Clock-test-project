@@ -4,5 +4,7 @@
 public class AlarmSettings : ScriptableObject
 {
     public AudioClip Clip;
+
+    public Color colorOfHands;
 }
 

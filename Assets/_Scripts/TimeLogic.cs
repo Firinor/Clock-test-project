@@ -1,6 +1,7 @@
 using UniRx;
 using UnityEngine;
 using Zenject;
+using System;
 
 public class TimeLogic : MonoBehaviour
 {
@@ -11,21 +12,15 @@ public class TimeLogic : MonoBehaviour
 
     void Start()
     {
-        Observable.EveryFixedUpdate()
-            .Subscribe(_ => timeData.DeltaTime += Time.fixedDeltaTime)
-            .AddTo(disposables);
-
-        Observable.EveryUpdate()
-            .Where(_ => timeData.DeltaTime > 1f)
+        Observable.Timer(TimeSpan.FromSeconds(1))
+            .Repeat()
             .Subscribe(_ => NextSecond())
             .AddTo(disposables);
     }
 
     private void NextSecond()
     {
-        timeData.DeltaTime -= 1f;
-        timeData.currentTime = timeData.currentTime.AddSeconds(1);
-        timeData.NextSecondInvoke();
+        timeData.CurrentTime = timeData.CurrentTime.AddSeconds(1);
     }
 
     private void OnDestroy()

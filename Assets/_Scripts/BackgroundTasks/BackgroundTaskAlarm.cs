@@ -20,7 +20,7 @@ public class BackgroundTaskAlarm : MonoBehaviour
 
     public void EnableAlarm()
     {
-        timeData.NextSecond += CheckAlarm;
+        timeData.NewTimeEvent += CheckAlarm;
     }
 
     private void CheckAlarm()
@@ -42,9 +42,9 @@ public class BackgroundTaskAlarm : MonoBehaviour
 
     private bool TimeIsCome()
     {
-        return timeData.currentTime.Hour == alarmData.AlarmTime.Hour
-            && timeData.currentTime.Minute == alarmData.AlarmTime.Minute
-            && timeData.currentTime.Second == alarmData.AlarmTime.Second;
+        return timeData.CurrentTime.Hour == alarmData.AlarmTime.Hour
+            && timeData.CurrentTime.Minute == alarmData.AlarmTime.Minute
+            && timeData.CurrentTime.Second == alarmData.AlarmTime.Second;
     }
 
     private void OnDestroy()
@@ -54,7 +54,6 @@ public class BackgroundTaskAlarm : MonoBehaviour
 
     private void DisableAlarm()
     {
-        timeData.NextSecond -= CheckAlarm;
-        timeData.NextSecond -= CheckAlarm;
+        timeData.NewTimeEvent -= CheckAlarm;
     }
 }

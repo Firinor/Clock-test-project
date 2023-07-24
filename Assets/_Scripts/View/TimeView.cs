@@ -1,7 +1,5 @@
 using System;
-using UnityEngine;
 using Zenject;
-using DG.Tweening;
 
 public class TimeView
 {
@@ -9,54 +7,44 @@ public class TimeView
     private ViewComponents viewComponents;
     [Inject]
     private ClockSettings clockSettings;
-    
+    [Inject]
+    private ClockViewUtil clockView;
+
     private TimeData timeData;
-    private DateTime time;
+    private bool isUpdated = false;
 
     [Inject]
     public TimeView(TimeData timeData)
     {
         this.timeData = timeData;
-        timeData.NextSecond += SetTime;
+        TableGoWithTick();
+        HandsGoWithTick();
     }
 
-    private void SetTime()
+    public void HandsDontGoWithTick()
     {
-        time = timeData.currentTime;
-
-        SetHourHand();
-        SetMinuteHand();
-        SetSecondHand();
-
-        SetClockNumber();
+        timeData.NewTimeEvent -= SetClockHands;
+        isUpdated = false;
     }
-    private void SetHourHand()
+    public void HandsGoWithTick()
     {
-        int hour = time.Hour;
-        int minute = time.Minute;
-        float angle = hour * CONSTANTS.HOUR_ANGLE_STEP + (float)minute * CONSTANTS.MINUTE_ANGLE_RATIO;
+        if (isUpdated)
+            return;
 
-        viewComponents.HourHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
+        timeData.NewTimeEvent += SetClockHands;
+        isUpdated = true;
     }
-
-    private void SetMinuteHand()
+    public void TableGoWithTick()
     {
-        int minute = time.Minute;
-        float angle = minute * CONSTANTS.HAND_ANGLE_STEP;
-
-        viewComponents.MinuteHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
+        timeData.NewTimeEvent += SetClockNumber;
     }
 
-    private void SetSecondHand()
+    private void SetClockHands()
     {
-        int second = time.Second;
-        float angle = second * CONSTANTS.HAND_ANGLE_STEP;
-
-        viewComponents.SecondHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
+        clockView.SetTimeHands(timeData.CurrentTime);
     }
-
     private void SetClockNumber()
     {
-        viewComponents.ClockText.text = time.ToString(clockSettings.timeFormat);
+        viewComponents.ClockText.text = timeData.CurrentTime.ToString(clockSettings.timeFormat);
     }
 }

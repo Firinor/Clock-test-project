@@ -25,11 +25,11 @@ public class TimeGetter : MonoBehaviour
 
             if(state.status == TimeGetterStatus.Success)
             {
-                timeData.currentTime = state.time;
+                timeData.CurrentTime = state.time;
                 yield break;
             }
         }
 
-        timeData.currentTime = DateTime.Now;
+        timeData.CurrentTime = DateTime.Now;
     }
 }

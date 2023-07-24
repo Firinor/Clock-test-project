@@ -8,6 +8,8 @@ public class Alarm : MonoBehaviour
     [Inject]
     private TimeData timeData;
     [Inject]
+    private TimeView timeView;
+    [Inject]
     private AlarmData alarmData;
     [Inject]
     private AlarmView alarmView;
@@ -24,6 +26,17 @@ public class Alarm : MonoBehaviour
         {
             ResetAlarm();
         }
+
+        ResetClockState();
+    }
+    public void OnEditAlarm(TMP_InputField input)
+    {
+        alarmView.OnEditAlarm(input);
+    }
+    private void ResetClockState()
+    {
+        alarmView.OnEndAlarmSelect();
+        timeView.HandsGoWithTick();
     }
 
     public void SetAlarm(DateTime time)
@@ -32,6 +45,7 @@ public class Alarm : MonoBehaviour
         alarmData.AlarmTime = time;
         alarmView.SetAlarmTime(time);
         backgroundTaskAlarm.EnableAlarm();
+        
     }
 
     public void ResetAlarm()
@@ -42,6 +56,7 @@ public class Alarm : MonoBehaviour
 
     public void StartToSetNewAlarm()
     {
-        alarmView.StartNewAlarmTime();
+        timeView.HandsDontGoWithTick();
+        alarmView.SelectNewAlarmTime();
     }
 }

@@ -2,13 +2,19 @@ using System;
 
 public class TimeData
 {
-    public float DeltaTime;
-    public DateTime currentTime;
-
-    public event Action NextSecond;
-
-    public void NextSecondInvoke()
+    private DateTime currentTime;
+    public DateTime CurrentTime 
     {
-        NextSecond?.Invoke();
+        get
+        { 
+            return currentTime;
+        }
+        set
+        {
+            currentTime = value;
+            NewTimeEvent?.Invoke();
+        }
     }
+
+    public event Action NewTimeEvent;
 }
