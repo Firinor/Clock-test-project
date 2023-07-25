@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: e7e3eaab3ca78074d8758c608c890d13, type: 3}
   colorOfHands: {r: 1, g: 0, b: 0, a: 1}
+  colorOfEditAlarmImage: {r: 1, g: 0, b: 0, a: 1}
+  colorOfAlarmImage: {r: 1, g: 1, b: 1, a: 1}
+  ButtonSetText: Set an alarm
+  ButtonOkText: OK

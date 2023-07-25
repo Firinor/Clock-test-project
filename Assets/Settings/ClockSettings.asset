@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed3fc218ccd01c4a95b2c00052f564b, type: 3}
   m_Name: ClockSettings
   m_EditorClassIdentifier: 
-  timeToTick: 0.4
+  timeToTick: 0.35
   timeFormat: HH:mm:ss
   colorOfHands: {r: 0, g: 0, b: 0, a: 1}

@@ -7,6 +7,12 @@ public class TimeLogic : MonoBehaviour
 {
     [Inject]
     private TimeData timeData;
+    [Inject]
+    private StateMachine stateMachine;
+    [Inject]
+    private TimeState thisState;
+    [Inject]
+    private TimeView timeView;
 
     CompositeDisposable disposables = new CompositeDisposable();
 
@@ -16,6 +22,10 @@ public class TimeLogic : MonoBehaviour
             .Repeat()
             .Subscribe(_ => NextSecond())
             .AddTo(disposables);
+
+        timeView.TableGoWithTick();
+
+        stateMachine.SetState(thisState);
     }
 
     private void NextSecond()

@@ -20,30 +20,26 @@ public class AlarmView
     {
         string timeString = time.ToString(clockSettings.timeFormat);
         viewComponents.AlarmInputField.text = timeString;
-        viewComponents.AlarmImage.color = Color.white;
-        viewComponents.AlarmImageGameObject.SetActive(true);
     }
+
 
     public void ClearAlarmTime()
     {
         viewComponents.AlarmInputField.text = "";
-        viewComponents.AlarmImageGameObject.SetActive(false);
     }
-
     public void SelectNewAlarmTime()
     {
         SetAlarmTime(alarmData.AlarmTime);
-        viewComponents.AlarmImage.color = alarmSettings.colorOfHands;
-        viewComponents.AlarmImageGameObject.SetActive(true);
         viewComponents.AlarmInputField.Select();
-
-        clockView.HighlightClockHands(alarmSettings.colorOfHands);
         clockView.SetTimeHands(alarmData.AlarmTime);
     }
-
-    public void OnEndAlarmSelect()
+    public void ButtonToSet()
     {
-        clockView.HighlightClockHands(clockSettings.colorOfHands);
+        viewComponents.AlarmButtonText.text = alarmSettings.ButtonSetText;
+    }
+    public void ButtonToOK()
+    {
+        viewComponents.AlarmButtonText.text = alarmSettings.ButtonOkText;
     }
     public void OnEditAlarm(TMP_InputField input)
     {
@@ -51,5 +47,28 @@ public class AlarmView
         {
             clockView.SetTimeHands(time);
         }
+    }
+
+    public void CheckAlarmImage()
+    {
+        if (alarmData.isAlarmEnabled)
+            ShowSetColorAlarmImage();
+        else
+            HideAlarmImage();
+    }
+
+    public void ShowEditColorAlarmImage()
+    {
+        viewComponents.AlarmImageGameObject.SetActive(true);
+        viewComponents.AlarmImage.color = alarmSettings.colorOfEditAlarmImage;
+    }
+    public void ShowSetColorAlarmImage()
+    {
+        viewComponents.AlarmImageGameObject.SetActive(true);
+        viewComponents.AlarmImage.color = alarmSettings.colorOfAlarmImage;
+    }
+    public void HideAlarmImage()
+    {
+        viewComponents.AlarmImageGameObject.SetActive(false);
     }
 }

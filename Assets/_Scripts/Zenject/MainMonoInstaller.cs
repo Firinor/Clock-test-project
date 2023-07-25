@@ -22,5 +22,10 @@ public class MainMonoInstaller : MonoInstaller
 
         Container.BindInstance(backgroundTask).AsSingle();
         Container.BindInstance(timeGetter).AsSingle();
+
+        Container.Bind<TimeState>().AsSingle();
+        Container.Bind<AlarmState>().AsSingle();
+
+        Container.Bind<StateMachine>().AsSingle();
     }
 }

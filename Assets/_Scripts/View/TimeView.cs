@@ -9,17 +9,9 @@ public class TimeView
     private ClockSettings clockSettings;
     [Inject]
     private ClockViewUtil clockView;
-
+    [Inject]
     private TimeData timeData;
     private bool isUpdated = false;
-
-    [Inject]
-    public TimeView(TimeData timeData)
-    {
-        this.timeData = timeData;
-        TableGoWithTick();
-        HandsGoWithTick();
-    }
 
     public void HandsDontGoWithTick()
     {

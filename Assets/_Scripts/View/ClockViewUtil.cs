@@ -46,7 +46,7 @@ public class ClockViewUtil
         viewComponents.SecondHand.DORotate(new Vector3(0f, 0f, angle), clockSettings.timeToTick);
     }
 
-    public void HighlightClockHands(Color color)
+    public void SetClockHandsColor(Color color)
     {
 
         HighlightClockHand(viewComponents.HourHand, color);

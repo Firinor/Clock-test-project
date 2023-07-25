@@ -58,17 +58,21 @@
     <Analyzer Include="E:\Unity\2022.2.13f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\_TimeLogic.cs" />
     <Compile Include="Assets\_Scripts\DATA\TimeData.cs" />
     <Compile Include="Assets\_Scripts\Zenject\ScriptableObjectInstaller.cs" />
+    <Compile Include="Assets\_Scripts\StateMachine\AlarmState.cs" />
     <Compile Include="Assets\_Scripts\DATA\Settings\ClockSettings.cs" />
     <Compile Include="Assets\_Scripts\Alarm.cs" />
     <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskAlarm.cs" />
+    <Compile Include="Assets\_Scripts\StateMachine\IState.cs" />
     <Compile Include="Assets\_Scripts\DragAndDropClockHand.cs" />
     <Compile Include="Assets\_Scripts\DATA\Static\CONST.cs" />
     <Compile Include="Assets\_Scripts\DATA\Settings\AlarmSettings.cs" />
     <Compile Include="Assets\_Scripts\DATA\Static\Enums.cs" />
     <Compile Include="Assets\_Scripts\DATA\Settings\BackgroundTaskSettings.cs" />
     <Compile Include="Assets\_Scripts\View\AlarmView.cs" />
+    <Compile Include="Assets\_Scripts\StateMachine\TimeState.cs" />
     <Compile Include="Assets\_Scripts\Zenject\MainMonoInstaller.cs" />
     <Compile Include="Assets\_Scripts\BackgroundTasks\BackgroundTaskTimeCheck.cs" />
     <Compile Include="Assets\_Scripts\Internet\TImeGetterStatus.cs" />
@@ -79,7 +83,7 @@
     <Compile Include="Assets\_Scripts\View\ViewComponents.cs" />
     <Compile Include="Assets\_Scripts\DATA\AlarmData.cs" />
     <Compile Include="Assets\_Scripts\Internet\TimeAcquisitionAPI.cs" />
-    <Compile Include="Assets\_Scripts\TimeLogic.cs" />
+    <Compile Include="Assets\_Scripts\StateMachine\StateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
